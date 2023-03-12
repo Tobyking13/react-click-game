@@ -2,6 +2,8 @@ import './App.css';
 import Jumbotron from './components/header/jumbotron';
 import NavBar from './components/header/nav';
 import Characters from './components/main/Characters/Characters';
+import { useState, useEffect } from 'react';
+
 // create json file with 12 images & ids
 
 // create a header component
@@ -15,17 +17,31 @@ import Characters from './components/main/Characters/Characters';
 
 
 function App() {
-  
+  const [count, setCount] = useState(0);
+  const [id, setId] = useState(1)
 
+  useEffect(() => {
+    console.log(`Count updated: ${count}`)
+    console.log(`Id updated: ${id}`)
+  }, [count, id]);
+
+  const handleClick = () => {
+    setCount(count + 1);
+    setId(id + Math.floor(Math.random() * id));
+
+  };
 
   return (
     <div>
       <header>
-        <NavBar />
-        <Jumbotron />
+        <NavBar count={count} />
+        <Jumbotron  />
       </header>
       <main>
-        <Characters />
+        <div onClick={handleClick}>
+        <Characters id={id}  />
+        </div>
+        
       </main>
     </div>
   );

@@ -9,14 +9,13 @@ class Characters extends Component {
     characters,
   };
 
-
-
   render() {
+  
     return (
       <div className="container">
         <Wrapper>
-          {this.state.characters.map((character) => (
-            <CharacterCard
+          {characters.map((character) => (
+            <CharacterCard 
               id={character.id}
               image={character.image}
             />

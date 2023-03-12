@@ -1,17 +1,18 @@
-import { useState } from "react";
 
-function NavBar() {
-    const [count, setCount] = useState(0);
+function NavBar(props) {
 
     return(
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./">Navbar</a>
-                <button className="btn btn-primary btn-lg" onClick={() => setCount(count + 1)}>Click</button>
-                <p>{count}</p>
+                <button className="btn btn-primary btn-lg">Click</button>
+                <p>{props.count}</p>
             </div>
         </nav>
     );
 };
 
-export default NavBar;
+export default NavBar
+
+
+// need to make the count increase when a card is clicked instead of click button
