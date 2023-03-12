@@ -18,17 +18,12 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [id, setId] = useState(1)
 
   useEffect(() => {
-    console.log(`Count updated: ${count}`)
-    console.log(`Id updated: ${id}`)
-  }, [count, id]);
+  }, [count]);
 
   const handleClick = () => {
     setCount(count + 1);
-    setId(id + Math.floor(Math.random() * id));
-
   };
 
   return (
@@ -38,8 +33,8 @@ function App() {
         <Jumbotron  />
       </header>
       <main>
-        <div onClick={handleClick}>
-        <Characters id={id}  />
+        <div onClick={() => handleClick()}>
+        <Characters />
         </div>
         
       </main>

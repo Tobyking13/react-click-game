@@ -9,13 +9,26 @@ class Characters extends Component {
     characters,
   };
 
-  render() {
-  
+  render() {    
+    function shuffleCards(array) {
+      for (let i = characters.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array
+    } 
+    const shuffledCards = shuffleCards(characters);
+    
+    function handleClick(e) {
+      console.log(e)
+    }
+
     return (
       <div className="container">
         <Wrapper>
-          {characters.map((character) => (
+          {shuffledCards.map((character) => (
             <CharacterCard 
+              onClick={(e) => handleClick(e)}
               id={character.id}
               image={character.image}
             />
